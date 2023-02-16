@@ -6,15 +6,6 @@ fn main() {
     challenges(lines);
 }
 
-fn _find_size(_lines: Vec<&str>) {
-
-    //let mut size_of_dic: u64 = 0;
-    //for line in lines{
-
-    //}
-    //   let mut scores: HashMap<String, u64> = HashMap::new();
-}
-
 fn challenges(lines: Vec<&str>) {
     let mut current_dir = String::new();
     let scores: &mut HashMap<String, u64> = &mut HashMap::new();
@@ -58,25 +49,6 @@ fn challenges(lines: Vec<&str>) {
 
 }
 
-/*fn find_size_of_dir(
-    first_dir: &str,
-    dirs: HashMap<&str, Vec<&str>>,
-    scores: &mut HashMap<String, u64>
-) {
-    let mut score: u64 = 0;
-    let contents: Vec<&str> = dirs.get(first_dir).unwrap().to_vec();
-    for i in contents {
-        if i.parse::<u64>().is_ok() {
-            let size: u64 = i.parse().unwrap();
-            score += size;
-        } else {
-            find_size_of_dir(i, dirs, scores);
-            let val = scores.get(i).unwrap();
-            score += val;
-        }
-    }
-    scores.insert(String::from(first_dir), score);
-}*/
 
 fn change_dir(mut current_dir: String, dest: &str) -> String {
     let mut parts: Vec<&str> = current_dir.split("?").collect();
