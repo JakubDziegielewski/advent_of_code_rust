@@ -7,11 +7,19 @@ fn main() {
     let mut stack_slice = Vec::from(&lines[..8]);
     stack_slice.reverse();
     let command_slice = Vec::from(&lines[10..]);
+    let stacks = chall_one(&stack_slice, &command_slice);
+    for mut s in stacks {
+        let top = s.pop().unwrap();
+        print!("{top}");
+    }
+    println!();
+
     let stacks = chall_two(&stack_slice, &command_slice);
     for mut s in stacks {
         let top = s.pop().unwrap();
         print!("{top}");
     }
+    println!();
 }
 
 fn chall_two(stack_slice: &Vec<&str>, command_slice: &Vec<&str>) -> Vec<Vec<char>> {
@@ -76,7 +84,7 @@ fn chall_two(stack_slice: &Vec<&str>, command_slice: &Vec<&str>) -> Vec<Vec<char
     stacks
 }
 
-/* fn chall_one(stack_slice: &Vec<&str>, command_slice: &Vec<&str> ) -> Vec<Vec<char>>{
+fn chall_one(stack_slice: &Vec<&str>, command_slice: &Vec<&str> ) -> Vec<Vec<char>>{
     let mut stacks: Vec<Vec<char>> =vec![Vec::new(), Vec::new(), Vec::new(), Vec::new(), Vec::new(), Vec::new(), Vec::new(), Vec::new(), Vec::new()];
     let iter: [usize; 9] = [0 ,1, 2, 3, 4, 5, 6, 7, 8];
     for &line in stack_slice{
@@ -113,4 +121,4 @@ fn chall_two(stack_slice: &Vec<&str>, command_slice: &Vec<&str>) -> Vec<Vec<char
 
     stacks
 }
- */
+ 
