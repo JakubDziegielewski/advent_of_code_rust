@@ -4,7 +4,35 @@ use std::path::Path;
 
 fn main() {
     // File hosts must exist in current path before this produces output
-    if let Ok(lines) = read_lines("src/input") {
+    chall_one();
+   chall_two();
+}
+
+fn chall_one(){
+    if let Ok(lines) = read_lines("input") {
+        // Consumes the iterator, returns an (Optional) String
+        let mut sum: u32 = 0;
+        let mut first: u32 = 0;
+        for line in lines {
+            if let Ok(number) = line {
+                if number.len() == 0 {
+                    if sum > first{
+                      first = sum
+                    }
+                    sum = 0;
+                }
+                else {
+                    let num: u32 = number.parse().unwrap();
+                    sum = sum + num
+                }
+                //println!("{}", number);
+            }
+        }
+        println!("result: {first}")
+    }
+}
+fn chall_two(){
+    if let Ok(lines) = read_lines("input") {
         // Consumes the iterator, returns an (Optional) String
         let mut sum: u32 = 0;
         let mut first: u32 = 0;
